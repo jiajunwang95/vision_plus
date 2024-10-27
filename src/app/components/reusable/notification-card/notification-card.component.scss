@@ -1,0 +1,13 @@
+.notif_title{
+    margin : 0px;
+    font-family : NotoSansBold;
+    font-size : 18px;
+}
+.notif_msg{
+    margin : 0px;
+    font-family : NotoSanRegular;
+    font-size : 14px;
+}
+::ng-deep .ant-notification-notice-icon{
+    padding-top : 5px
+}

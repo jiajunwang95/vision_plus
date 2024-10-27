@@ -1,0 +1,24 @@
+.menuList{
+    font-family : NotoSanRegular;
+    margin-top : 5px;
+}
+.menuIconRow{
+    display : block;
+    width: 100%;
+    text-align: center;
+}
+.menu-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemLabel {
+    font-size : 14px !important;
+    margin : 0px;
+    color : #fff !important
+}
+.itemIcon{
+    font-size : 0px !important;
+    padding-top : 0px;
+}

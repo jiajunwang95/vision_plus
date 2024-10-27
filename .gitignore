@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+#Logs
+/log
+server/cron/script/sample.js
+*.zip
+server/cron/script/standalone

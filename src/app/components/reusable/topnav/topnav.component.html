@@ -1,0 +1,24 @@
+<div class = "menuList">
+    <ul *ngIf ="navbarMenu" nz-menu nzMode="horizontal" nzTheme = "dark">
+        <ng-container  [ngTemplateOutlet]="sideNavTemplate" [ngTemplateOutletContext] = "{navbarMenu : navbarMenu}"></ng-container>
+        <ng-template #sideNavTemplate let-navbarMenu = "navbarMenu">
+            <ng-container *ngFor = "let item of navbarMenu">           
+                <li *ngIf="!item.children" nz-menu-item [nzPaddingLeft] = "item.level *24" [nzDisabled] = "item.disabled" [nzSelected] = "item.selected"
+                [routerLink] = "item.path">
+                    <span><cds-icon [attr.shape]="item.icon" size="26" *ngIf="item.icon"></cds-icon></span>
+                    <span class = "itemLabel" *ngIf = "!isCollapsed"> {{item.title}}</span>
+                </li>
+                <li *ngIf ="item.children" nz-submenu [nzPaddingLeft] = "item.level *24" [nzOpen] = "item.open" [nzDisabled] = "item.disabled"
+                    [nzTitle] = "childTitle" [routerLink] = "item.path">
+                    <ng-template #childTitle>
+                        <span><cds-icon [attr.shape]="item.icon" size = "26"></cds-icon></span>
+                        <p class = "itemLabel">{{item.title}}</p>
+                    </ng-template>
+                    <ul>
+                        <ng-container  [ngTemplateOutlet]="sideNavTemplate" [ngTemplateOutletContext] = "{navbarMenu : item.children}"></ng-container>
+                    </ul>
+                </li>
+            </ng-container>
+        </ng-template>
+    </ul>
+</div> 

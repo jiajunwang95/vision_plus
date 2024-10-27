@@ -1,0 +1,94 @@
+<div class="cardholder">
+    <div class="div_header" style="padding :5px 2px">
+        <div nz-col [nzSpan]="24">
+            <!-- Heading....-->
+            <div nz-row class="header_row">
+                <div nz-col [nzXs]="24" [nzSm]="4">
+                    <div nz-row class="subheader_row">
+                        <span class="sub_icon"><cds-icon [attr.shape]="'resize'"
+                                [attr.size]="mobileView ? imageSize['MOBILE'] : imageSize['DEFAULT']"
+                                class="defaultLogo"></cds-icon></span>
+                        <span class="sub_icon"><cds-icon [attr.shape]="'download'"
+                                [attr.size]="mobileView ? imageSize['MOBILE'] : imageSize['DEFAULT']"
+                                class="downloadIcon"></cds-icon></span>
+                        <span class="app_title">APP No 1</span>
+                    </div>
+                </div>
+                <!--Desktop View-->
+                <div nz-col [nzSm]="20" *ngIf="!mobileView">
+                    <div nz-row>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">SDC</p>
+                        </div>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">PDC</p>
+                        </div>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">SUV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div nz-row class="header_row" *ngIf = "!mobileView">
+                <div nz-col [nzXs]="24" [nzSm]="4">
+                    <div nz-row class="country_row">
+                        <div nz-col [nzSpan]="8"></div>
+                        <div nz-col [nzSpan]="8">
+                            SG
+                        </div>
+                        <div nz-col [nzSpan]="8">
+                            5
+                        </div>
+                    </div>
+                </div>
+                <!--Desktop View-->
+                <div nz-col [nzSm]="20" *ngIf="!mobileView">
+                    <div nz-row>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">value for SDC</p>
+                        </div>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">value for PDC</p>
+                        </div>
+                        <div nz-col [nzSm]="8">
+                            <p class="sub_heading">value for SUV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Mobile View Heading-->
+        <div nz-row *ngIf="mobileView">
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading" >Country</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">SDC</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">PDC</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">SUV</p>
+            </div>
+        </div>
+        <!--Mobile Body Content.-->
+        <div nz-row *ngIf="mobileView">
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading" >SG</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">Green</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">Green</p>
+            </div>
+            <div nz-col [nzXs]="6">
+                <p class="sub_heading">Green</p>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
