@@ -1,0 +1,25 @@
+.primary_key{
+    color : gold
+}
+.delete_icon{
+    color: red;
+    padding-left : 10px;
+}
+.table_label{
+    padding-left: 5px;
+    font-size : 12px;
+    font-family : NotoSansBold;
+}
+.normalHeading{
+    text-align: center;
+
+}
+.normaltd{
+    max-width: 300px;
+    overflow: scroll;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.action_td{
+    text-align: center;
+}

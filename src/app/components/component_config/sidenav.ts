@@ -24,6 +24,7 @@ export const navbarmenu = [
         open : false,
         selected : false,
         disabled : false,
+        path : 'testing'
     },
     {
         level : 1,
@@ -32,5 +33,6 @@ export const navbarmenu = [
         open : false,
         selected : false,
         disabled : false,
+        path : 'testing'
     }
 ]

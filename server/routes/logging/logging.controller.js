@@ -5,8 +5,8 @@ const inital = require('../../utils/initial')
 
 module.exports = {
     logging : (async  (res) =>{
-        const ACTION = res.ACTION; const USER = res.USER; const MSG = res.SESSION_ID;
-        return logger.generateLog('USER','ACTION',USER,ACTIOsN,MSG)
+        const ACTION = res.ACTION; const USER = res.USER; const MSG = res.SESSION_ID;const TYPE = res.TYPE;
+        return logger.generateLog('USER',TYPE,USER,ACTION,MSG)
         
     })
 }

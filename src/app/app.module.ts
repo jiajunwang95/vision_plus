@@ -21,6 +21,11 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { BotnavComponent } from './components/reusable/botnav/botnav.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n'; // Import the English locale
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 //Additional Component
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { FormComponent } from './components/reusable/form/form.component'
@@ -28,6 +33,10 @@ import { LoggingService } from './services/logging.service';
 import { NotificationCardComponent } from './components/reusable/notification-card/notification-card.component';
 import { TopnavComponent } from './components/reusable/topnav/topnav.component';
 import { CardholderComponent } from './components/landingpage/components/cardholder/cardholder.component';
+import { AdminpageComponent } from './components/reusable/adminpage/adminpage.component';
+import { DataTabComponent } from './components/reusable/adminpage/admin_tabs/data-tab/data-tab.component';
+import { AdminService } from './services/admin.service';
+import { FilterBarComponent } from './components/reusable/filter-bar/filter-bar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +48,10 @@ import { CardholderComponent } from './components/landingpage/components/cardhol
     BotnavComponent,
     NotificationCardComponent,
     TopnavComponent,
-    CardholderComponent
+    CardholderComponent,
+    AdminpageComponent,
+    DataTabComponent,
+    FilterBarComponent
   ],
   imports: [
     BrowserModule,
@@ -54,12 +66,17 @@ import { CardholderComponent } from './components/landingpage/components/cardhol
     NzTableModule,
     NzIconModule,
     NzFormModule,
+    NzTabsModule,
+    NzPopconfirmModule,
+    NzInputModule,
     NzNotificationModule,
+    NzToolTipModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [
-    LoggingService,
+    LoggingService,AdminService,
+    { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]
 })

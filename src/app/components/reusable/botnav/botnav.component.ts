@@ -1,5 +1,5 @@
 import { Component, Input,OnInit } from '@angular/core';
-import {general,navbarmenu} from '../reusable_config/sidenav'
+import {general,navbarmenu} from '../../component_config/sidenav'
 
 @Component({
   selector: 'app-botnav',

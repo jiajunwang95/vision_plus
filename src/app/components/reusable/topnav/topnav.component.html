@@ -20,5 +20,8 @@
                 </li>
             </ng-container>
         </ng-template>
+        <li nz-menu-item  class ="Admin_icon"  *ngIf = "isAdmin" [routerLink] = "'admin'">
+            <span><cds-icon [attr.shape]="'grid-view'" size = "26"></cds-icon></span>
+        </li>
     </ul>
 </div> 

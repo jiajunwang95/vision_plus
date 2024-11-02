@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router"
 import _ from 'lodash'
 import { combineLatest } from 'rxjs';
 import { LoggingService } from 'src/app/services/logging.service';
+import { imageSize } from '../component_config/element';
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
@@ -13,10 +14,7 @@ export class LandingpageComponent {
     private LogingService : LoggingService
   ) {}
   mobileView : boolean = false;
-  imageSize = {
-    MOBILE : '12',
-    DEFAULT : '24'
-  }
+  imageSize = imageSize
   ngOnInit(): void {
     combineLatest([
       this.LogingService.data,

@@ -9,11 +9,12 @@ export class LoggingService {
     USER;SESSION_ID;
     public data = new BehaviorSubject<boolean>(false);
     constructor(private httpClient : HttpClient){}
-    loggingUserAction(USER,ACTION,SESSION_ID) : Observable<any>{
+    loggingUserAction(USER,ACTION,SESSION_ID,TYPE = 'ACTION') : Observable<any>{
         const params = new HttpParams()
         .set("USER" , USER)
         .set("ACTION", ACTION)
         .set("SESSION_ID", SESSION_ID)
+        .set("TYPE", TYPE)
         return this.httpClient.get("/api/logging",{params})
     }
     setUser() : Observable<any>{

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:local": "pm2 start server/config/ecosystem.config.js",
+    "start:local": "pm2 start server/config/local/ecosystem.config.js",
     "build:local": "ng build --watch ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

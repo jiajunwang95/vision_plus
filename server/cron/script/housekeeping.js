@@ -1,6 +1,7 @@
 const Config = require('../../config/config');
 const conf = Config();
 const logger = require('../../utils/logger/log4js');
+const fs = require('fs');const readline = require('readline');
 module.exports = {
     consolidateTodayLog: async () => {
         /**

@@ -1,0 +1,47 @@
+<!--Search bar...-->
+
+<nz-table #editRowTable nzBordered [nzData]="TABLE_DATA" >
+    <thead>
+      <tr>
+        <ng-container *ngFor = "let item of TABLE_COLUMN | keyvalue">
+          <th class = "primaryHeading" *ngIf = "item.value['PRIMARY'] == 'PRIMARY'" nzWidth="15%">
+            <span class = "primary_key"><cds-icon [attr.shape]="'key'" size = "16" *ngIf = "item.value['PRIMARY'] == 'PRIMARY'"></cds-icon></span>
+            <span class = "table_label">{{item.key}}</span>
+          </th>
+          <th class = "normalHeading" *ngIf = "item.value['PRIMARY'] !== 'PRIMARY'">
+            <span class = "table_label">{{item.key}}</span>
+          </th>
+        </ng-container>
+        <th class = "normalHeading"> 
+          <span class = "table_label">ACTION</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="editable-row" *ngFor = "let data of TABLE_DATA">
+          <ng-container *ngIf="editId == data[selectedColumn]">
+            <td *ngFor="let item of TABLE_COLUMN | keyvalue">
+              <textarea  nz-input [(ngModel)]="editData[item.key]"></textarea>
+            </td>
+            <ng-container *ngIf ="selectedAction == 'EDIT'">
+                <td class = "action_td">
+                  <a class = "edit_icon" nz-tooltip nzTooltipTitle="Save" (click)="saveEdit(editData)"><cds-icon shape="upload" size = "16" ></cds-icon></a>
+                  <a class = "delete_icon" nz-tooltip nzTooltipTitle="Close" (click)="stopEdit()"><cds-icon shape="window-close" size = "16" ></cds-icon></a>
+                </td>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="editId !== data[selectedColumn]">
+            <td *ngFor="let item of TABLE_COLUMN | keyvalue">
+              {{ data[item.key] }}
+            </td>
+            <td class = "action_td">
+              <a class = "edit_icon" nz-tooltip nzTooltipTitle="Edit" (click)="startEdit(data, 'EDIT')"><cds-icon shape="pencil" size = "16" ></cds-icon></a>
+              <a class = "delete_icon" nz-tooltip nzTooltipTitle="Delete"  
+              nz-popconfirm nzPopconfirmTitle="Sure to delete?"
+              (nzOnConfirm)="deleteEntry(data)"><cds-icon shape="trash" size = "16" ></cds-icon></a>
+            </td>
+          </ng-container>
+          </tr>
+    </tbody>
+  </nz-table>
+  <app-notification-card *ngIf ="displayError" [status]="'error'"  [message] ="ErrorMsg"></app-notification-card>

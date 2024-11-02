@@ -1,14 +1,15 @@
 import { Component, HostListener, OnInit,SimpleChanges } from '@angular/core';
-import {general} from './components/reusable/reusable_config/sidenav'
-import {ClarityIcons, dashboardIcon,blocksGroupIcon,resizeIcon,shrinkIcon,downloadIcon} from '@cds/core/icon';
+import {general} from './components/component_config/sidenav'
+import {ClarityIcons, dashboardIcon,blocksGroupIcon,resizeIcon,shrinkIcon,downloadIcon,gridViewIcon,keyIcon,pencilIcon,trashIcon,uploadIcon,
+  windowCloseIcon
+} from '@cds/core/icon';
 import { LoggingService } from './services/logging.service';
 import { combineLatest } from 'rxjs';
 //Declare here so other compnents dont need to declare
-ClarityIcons.addIcons(dashboardIcon);
-ClarityIcons.addIcons(blocksGroupIcon);
-ClarityIcons.addIcons(resizeIcon);
-ClarityIcons.addIcons(shrinkIcon);
-ClarityIcons.addIcons(downloadIcon);
+ClarityIcons.addIcons(dashboardIcon);ClarityIcons.addIcons(blocksGroupIcon);ClarityIcons.addIcons(resizeIcon);
+ClarityIcons.addIcons(shrinkIcon);ClarityIcons.addIcons(downloadIcon);ClarityIcons.addIcons(gridViewIcon);
+ClarityIcons.addIcons(keyIcon);ClarityIcons.addIcons(pencilIcon);ClarityIcons.addIcons(trashIcon);ClarityIcons.addIcons(uploadIcon);
+ClarityIcons.addIcons(windowCloseIcon)
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

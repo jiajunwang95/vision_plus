@@ -1,6 +1,6 @@
 <nz-layout class = "Main_Layout">
   <nz-layout>
-      <app-topnav *ngIf="!mobileView"></app-topnav>
+      <app-topnav *ngIf="!mobileView" [isAdmin]="true"></app-topnav>
       <nz-header class="headerLayout" *ngIf="mobileView">
         <div nz-row >
           <div nz-col nzSpan="3" >

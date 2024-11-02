@@ -21,7 +21,7 @@ module.exports = {
              * 2. Loop thru the KEY to identify which not found in the process.env
              * 3. Save them into the process.env (Only can be save as string....)
              */
-            const local_conf = require('../config/ecosystem.config')['apps'][0];
+            const local_conf = require('../config/local/ecosystem.config')['apps'][0];
             for(const KEY in local_conf[process.env.NODE_ENV]){
                 if(!process.env[KEY]){
                     process.env[KEY] = local_conf[process.env.NODE_ENV][KEY];

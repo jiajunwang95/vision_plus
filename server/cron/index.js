@@ -7,7 +7,7 @@ const USER = 'ADMIN';
  * Importing Scripts
  */
 const HOUSEKEEP = require('./script/housekeeping');
-cron.schedule('*/1 * * * *', () =>{
+cron.schedule('00 00 * * *', () =>{
     logger.generateLog('CRON','INFO',USER,'HOUSEKEEP','Housekeeping Cron Initiated');
     HOUSEKEEP.consolidateTodayLog()
     .then(res => {

@@ -1,5 +1,5 @@
 import { Component, Input,OnInit } from '@angular/core';
-import {general,navbarmenu} from '../reusable_config/sidenav'
+import {general,navbarmenu} from '../../component_config/sidenav'
 
 @Component({
   selector: 'app-topnav',
@@ -8,6 +8,7 @@ import {general,navbarmenu} from '../reusable_config/sidenav'
 })
 export class TopnavComponent {
   @Input() isCollapsed = false;
+  @Input() isAdmin = false;
   shorTitle : string = general.shortTitle;
   appIcon : string = general.appIcon;
   navbarMenu : Array<any > = navbarmenu;
