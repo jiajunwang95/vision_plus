@@ -10,7 +10,7 @@
 
               </ng-container>
               <ng-container *ngSwitchCase="'data'">
-                <app-data-tab></app-data-tab>
+                <app-data-tab [mobileView] = "mobileView" [USER] = "USER" [SESSION_ID] = "SESSION_ID"></app-data-tab>
               </ng-container>
               <ng-container *ngSwitchDefault>
                 <p>Component Not Found</p>

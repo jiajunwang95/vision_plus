@@ -1,6 +1,12 @@
 .primary_key{
     color : gold
 }
+.mobile_div{
+    width: 85%;
+}
+.mobile_view_main_div{
+    padding : 0px 10px
+}
 .delete_icon{
     color: red;
     padding-left : 10px;
@@ -22,4 +28,21 @@
 }
 .action_td{
     text-align: center;
+}
+::ng-deep .ant-input-group-addon {
+    padding-top: 5px !important;
+    font-size: 10px !important;
+    color: #fff !important
+}
+
+::ng-deep .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    background: #722ed1 !important;
+    border-color: #722ed1 !important;
+}
+::ng-deep .ant-input-group-addon {
+    padding-top : 0px!important
+}
+::ng-deep .ant-select-item-option-content{
+    font-size : 12px;
+    font-family: NotoSanRegular;
 }

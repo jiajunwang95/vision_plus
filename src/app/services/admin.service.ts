@@ -11,7 +11,12 @@ export class AdminService {
         const params = new HttpParams()
         .set("TABLE" , TABLE)
         return this.httpClient.get("/api/getTable",{params})
-    }
+    };
+    getAvailableTable(KEYWORD) : Observable<any>{
+        const params = new HttpParams()
+        .set("KEYWORD" , KEYWORD)
+        return this.httpClient.get("/api/getAvailableTable",{params})
+    };
 
 
 

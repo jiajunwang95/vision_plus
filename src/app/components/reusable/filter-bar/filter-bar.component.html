@@ -1,7 +1,7 @@
 <nz-content class = "component_Layout" >
     <div nz-row [nzGutter]="[8,8]" style = "width: 100%; margin-bottom : 2px;"> 
         <div nz-col  [nzSm]="20">
-            <div nz-row style ="width : 100%;margin-bottom :2px;"[nzGutter]="[4,0]" *ngIf = "displayFilter">
+            <div nz-row style ="width : 100%;margin-bottom :2px;"[nzGutter]="[4,0]" *ngIf = "displayFilter && !mobileView">
                 <nz-col  *ngFor = "let filter_row of filterObj">
                     <nz-col [nzSm]="24" >
                         <span ><cds-icon [attr.shape]="filter_row['ICON']" size = "12"></cds-icon></span>
@@ -15,12 +15,12 @@
                 </nz-col>
             </div>
         </div>
-        <div nz-col [nzSm]="4">
+        <div nz-col [nzSm]="4" [ngClass] = "mobileView ? 'search_select_mobile' : ''">
             <span ><cds-icon [attr.shape]="'search'" size = "12"></cds-icon></span>
             <span class = "filter_heading">Search</span>
-            <nz-input-group  class ="searhbox" nzSearch [nzAddOnAfter]="suffixIconButton">
+            <nz-input-group  class ="searhbox" nzSearch [nzAddOnAfter]="suffixIconButton" >
                 <nz-select nzMode = "tags" [nzPlaceHolder] = "'Search ' + PrimaryKey" [nzMaxTagCount] = "4" nzSize = "small"
-                class = "search_select" [(ngModel)] = 'selectedValue' (ngModelChange) ="searchSelected()"
+                [ngClass] = " 'search_select'" [(ngModel)] = 'selectedValue' (ngModelChange) ="searchSelected()"
                > <!--[(ngModel)] = '' (ngModelChange)-->
                     <nz-option *ngFor = "let o of listOfOption"
                     [nzValue]="" [nzValue]=""

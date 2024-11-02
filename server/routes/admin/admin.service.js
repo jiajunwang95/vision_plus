@@ -20,5 +20,16 @@ module.exports = {
             raw : true
         })
         return result;
+    },
+    getTableFound : async (KEYWORD) =>{
+        const query = `
+        SELECT TABLE_NAME 
+        FROM INFORMATION_SCHEMA.TABLES 
+        WHERE TABLE_NAME like "${KEYWORD}%"
+        `
+        const result = await db.sequelize.query(query, {
+            type : db.sequelize.QueryTypes.SELECT
+        });
+        return result
     }
 }

@@ -46,4 +46,15 @@ module.exports = {
             throw error;
         }
     }),
+    getAvailableTable : (async  (res) =>{
+        try{
+            const TABLE_KEYWORK = res.KEYWORD;
+            const TABLE = await service.getTableFound(TABLE_KEYWORK);
+            return TABLE;
+  
+        }catch(error){
+            console.log("What is error",error)
+            throw error;
+        }
+    }),
 }
