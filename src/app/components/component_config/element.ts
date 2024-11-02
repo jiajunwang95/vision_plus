@@ -16,3 +16,25 @@ export const tabs = [
         disabled : false
       },
 ]
+export const filter_config = {
+    ADMIN : [
+      {
+        HEADING : 'COUNTRY',
+        ICON : 'compass',
+        DATA : [
+          {LABEL : "SG", VALUE : "SINGAPORE"},
+          {LABEL : "MY", VALUE : "MALAYSIA"},
+          {LABEL : "CN", VALUE : "CHINA"}
+        ],
+      },
+      {
+        HEADING : 'MONTH',
+        ICON : 'calendar',
+        DATA :[
+          {LABEL : "JAN", VALUE : "JAN"},
+          {LABEL : "FEB", VALUE : "FEB"},
+          {LABEL : "MAR", VALUE : "MAR"}
+        ]
+      }
+    ]
+}

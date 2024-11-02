@@ -16,7 +16,7 @@ export class DataTabComponent implements OnInit {
   /** Components Variables */
   //Table related
   TABLE_NAME = 'VISION_SAMPLE';
-  TABLE_COLUMN = {};TABLE_DATA = [];
+  TABLE_COLUMN = {};TABLE_DATA = [];displayData = [];
   editId: string = '';editData : any = {}; selectedColumn : string = '';
   selectedAction;
   /**Modal related */
@@ -34,6 +34,7 @@ export class DataTabComponent implements OnInit {
         console.log("What is res",res);
         this.TABLE_COLUMN = res[1]['COLUMN'];
         this.TABLE_DATA = res[1]['DATA'];
+        this.displayData = this.TABLE_DATA;
       }, (err) => {
         this.LoggingService.loggingUserAction(this.USER, `Entered Admin data tab with error : ${err['error']}`, this.SESSION_ID,"ERROR").subscribe()
         console.log("subscribe error will fall here", err['error']);
@@ -65,6 +66,11 @@ export class DataTabComponent implements OnInit {
   deleteEntry(data) : void {
     console.log("Data to be deleted...",data);
   }
-
+  searchActivated(event) : void{
+    console.log("What is being searched",event);
+    if(event.length > 0)this.displayData = this.TABLE_DATA.filter(x => event.includes(x['HOSTNAME']));
+    else this.displayData = this.TABLE_DATA;
+    
+  }
 
 }

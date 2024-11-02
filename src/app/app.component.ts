@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit,SimpleChanges } from '@angular/core';
 import {general} from './components/component_config/sidenav'
 import {ClarityIcons, dashboardIcon,blocksGroupIcon,resizeIcon,shrinkIcon,downloadIcon,gridViewIcon,keyIcon,pencilIcon,trashIcon,uploadIcon,
-  windowCloseIcon
+  windowCloseIcon,compassIcon,searchIcon
 } from '@cds/core/icon';
 import { LoggingService } from './services/logging.service';
 import { combineLatest } from 'rxjs';
@@ -9,7 +9,7 @@ import { combineLatest } from 'rxjs';
 ClarityIcons.addIcons(dashboardIcon);ClarityIcons.addIcons(blocksGroupIcon);ClarityIcons.addIcons(resizeIcon);
 ClarityIcons.addIcons(shrinkIcon);ClarityIcons.addIcons(downloadIcon);ClarityIcons.addIcons(gridViewIcon);
 ClarityIcons.addIcons(keyIcon);ClarityIcons.addIcons(pencilIcon);ClarityIcons.addIcons(trashIcon);ClarityIcons.addIcons(uploadIcon);
-ClarityIcons.addIcons(windowCloseIcon)
+ClarityIcons.addIcons(windowCloseIcon);ClarityIcons.addIcons(compassIcon);ClarityIcons.addIcons(searchIcon);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

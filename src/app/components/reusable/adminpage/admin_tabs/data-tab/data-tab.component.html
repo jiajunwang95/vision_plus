@@ -1,6 +1,8 @@
 <!--Search bar...-->
-
-<nz-table #editRowTable nzBordered [nzData]="TABLE_DATA" >
+<app-filter-bar [PrimaryKey]="'HOSTNAME'" [displayFilter] = "false"
+(searchEvent)="searchActivated($event)"
+></app-filter-bar>
+<nz-table #editRowTable nzBordered [nzData]="TABLE_DATA"  style="padding-top: 25px;">
     <thead>
       <tr>
         <ng-container *ngFor = "let item of TABLE_COLUMN | keyvalue">
@@ -18,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr class="editable-row" *ngFor = "let data of TABLE_DATA">
+        <tr class="editable-row" *ngFor = "let data of displayData">
           <ng-container *ngIf="editId == data[selectedColumn]">
             <td *ngFor="let item of TABLE_COLUMN | keyvalue">
               <textarea  nz-input [(ngModel)]="editData[item.key]"></textarea>

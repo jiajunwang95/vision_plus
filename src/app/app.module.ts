@@ -19,13 +19,15 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { BotnavComponent } from './components/reusable/botnav/botnav.component';
-import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n'; // Import the English locale
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 //Additional Component
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { FormComponent } from './components/reusable/form/form.component'
@@ -71,6 +73,8 @@ import { FilterBarComponent } from './components/reusable/filter-bar/filter-bar.
     NzInputModule,
     NzNotificationModule,
     NzToolTipModule,
+    NzRadioModule,
+    NzSelectModule,
     FormsModule,
     ReactiveFormsModule
   ],
