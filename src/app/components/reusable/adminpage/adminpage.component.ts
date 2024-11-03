@@ -9,7 +9,7 @@ import { tabs } from '../../component_config/element'
   styleUrls: ['./adminpage.component.scss']
 })
 export class AdminpageComponent implements OnInit {
-  USER; SESSION_ID;
+  USER; SESSION_ID;SELECTED_TAB;
   //For Error handling
   displayError = false; ErrorMsg = '';
   //For Mobile View related varibles...
@@ -40,6 +40,7 @@ export class AdminpageComponent implements OnInit {
         const TAB = res[0]['tab'];
         if (TAB == undefined) {
           //This is to redirect the user to first tab if he pressed the nav bar...
+          this.SELECTED_TAB = "LOG";
           this.router.navigate(['/admin'], {
             queryParams: {
               tab: 'log'
@@ -67,5 +68,10 @@ export class AdminpageComponent implements OnInit {
       this.subscription.unsubscribe();
     }
     this.LoggingService.loggingUserAction(this.USER, 'Exited Admin Page', this.SESSION_ID).subscribe();
+  }
+  tabChanged(event){
+    /**Only work if ur text inside nzTitle... */
+    console.log("What is event",event['tab']['nzTitle']);
+    this.SELECTED_TAB = event['tab']['nzTitle']
   }
 }

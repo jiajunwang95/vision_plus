@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { LoggingService } from '../../../../../services/logging.service';
 import { AdminService } from '../../../../../services/admin.service';
 import { combineLatest } from 'rxjs';
@@ -8,11 +8,12 @@ import { combineLatest } from 'rxjs';
   templateUrl: './data-tab.component.html',
   styleUrls: ['./data-tab.component.scss']
 })
-export class DataTabComponent implements OnInit {
+export class DataTabComponent implements OnChanges  {
   constructor(private LoggingService: LoggingService, private AdminService : AdminService) { }
   @Input() mobileView : boolean;
   @Input() USER : string;
   @Input() SESSION_ID : string;
+  @Input() SELECTED_TAB : string;
   //For Error handling
   displayError = false; ErrorMsg = '';
   /** Components Variables */
@@ -23,24 +24,27 @@ export class DataTabComponent implements OnInit {
   editId: string = '';editData : any = {}; selectedColumn : string = '';
   selectedAction;
   /**Modal related */
-  ngOnInit(): void {
-    combineLatest([
-      this.LoggingService.loggingUserAction(this.USER, 'Entered Admin data tab', this.SESSION_ID),
-      this.AdminService.getAvailableTable(this.KEYWORD),
-    ]).subscribe((res) => {
-      //Perform your tasks here....
-      console.log("What is res",res);
-      this.TABLE_NAME =res[1];
-      if(this.TABLE_NAME.length == 1){
-        this.selectedTable = this.TABLE_NAME[0]['TABLE_NAME'];
-        this.searchTableinDB();
-      }
-    }, (err) => {
-      this.LoggingService.loggingUserAction(this.USER, `Entered Admin data tab with error : ${err['error']}`, this.SESSION_ID,"ERROR").subscribe()
-      console.log("subscribe error will fall here", err['error']);
-      this.ErrorMsg = err['error']['message'] || 'Unknown Error';
-      this.displayError = true;
-    })
+  ngOnChanges(changes : SimpleChanges): void {
+    if(changes['SELECTED_TAB'] && changes['SELECTED_TAB']['previousValue'] !== undefined){
+      combineLatest([
+        this.LoggingService.loggingUserAction(this.USER, 'Entered Admin data tab', this.SESSION_ID),
+        this.AdminService.getAvailableTable(this.KEYWORD),
+      ]).subscribe((res) => {
+        //Perform your tasks here....
+        console.log("What is res",res);
+        this.TABLE_NAME =res[1];
+        if(this.TABLE_NAME.length == 1){
+          this.selectedTable = this.TABLE_NAME[0]['TABLE_NAME'];
+          this.searchTableinDB();
+        }
+      }, (err) => {
+        this.LoggingService.loggingUserAction(this.USER, `Entered Admin data tab with error : ${err['error']}`, this.SESSION_ID,"ERROR").subscribe()
+        console.log("subscribe error will fall here", err['error']);
+        this.ErrorMsg = err['error']['message'] || 'Unknown Error';
+        this.displayError = true;
+      })
+    } 
+
   }
   /**Search selected table */
   searchTableinDB() : void {

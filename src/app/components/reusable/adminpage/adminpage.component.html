@@ -1,16 +1,20 @@
 <nz-content class = "component_Layout">
     <p class ="admin_title">Admin Page</p>
-    <nz-tabset nzLinkRouter style="padding : 5px 10px">
+    <nz-tabset nzLinkRouter style="padding : 5px 10px"  (nzSelectChange) ="tabChanged($event)">
         <nz-tab *ngFor="let row of tabs"  [nzDisabled]="row.disabled">
             <a *nzTabLink nz-tab-link [routerLink]="['.']" [queryParams]="{ tab: row.route }" queryParamsHandling="merge">
               <span nz-icon [nzType]="row.icon" class = "tab_label"></span><span class = "tab_label">{{row.name}}</span>
             </a>
             <ng-container  [ngSwitch]="row.route">
               <ng-container *ngSwitchCase="'log'">
-
+                <app-log-tab  [mobileView] = "mobileView" [USER] = "USER" [SESSION_ID] = "SESSION_ID" 
+                [SELECTED_TAB] = "SELECTED_TAB"
+                ></app-log-tab>
               </ng-container>
               <ng-container *ngSwitchCase="'data'">
-                <app-data-tab [mobileView] = "mobileView" [USER] = "USER" [SESSION_ID] = "SESSION_ID"></app-data-tab>
+                <app-data-tab [mobileView] = "mobileView" [USER] = "USER" [SESSION_ID] = "SESSION_ID" 
+                [SELECTED_TAB] = "SELECTED_TAB"
+                ></app-data-tab>
               </ng-container>
               <ng-container *ngSwitchDefault>
                 <p>Component Not Found</p>

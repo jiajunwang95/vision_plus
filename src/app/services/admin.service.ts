@@ -17,6 +17,12 @@ export class AdminService {
         .set("KEYWORD" , KEYWORD)
         return this.httpClient.get("/api/getAvailableTable",{params})
     };
+    getLog(LOG_TYPE,LIMIT) : Observable<any>{
+        const params = new HttpParams()
+        .set("LOG_TYPE" , LOG_TYPE)
+        .set("LIMIT" , LIMIT)
+        return this.httpClient.get("/api/getLog",{params})
+    }
 
 
 

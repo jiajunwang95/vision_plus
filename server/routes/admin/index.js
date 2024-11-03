@@ -17,5 +17,13 @@ module.exports = (router) => {
             next(err);
         })
     })
+    router.get('/getLog', async (req,res,next) =>{
+        controller.getLog(req.query)
+        .then(result => {return res.status(200).json(result);})
+        .catch(error => {
+            const err = new utils.CustomError(`${error.message}`,404); //req.originalUrl - to display the api
+            next(err);
+        })
+    })
 
 }

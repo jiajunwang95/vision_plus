@@ -39,6 +39,7 @@ import { AdminpageComponent } from './components/reusable/adminpage/adminpage.co
 import { DataTabComponent } from './components/reusable/adminpage/admin_tabs/data-tab/data-tab.component';
 import { AdminService } from './services/admin.service';
 import { FilterBarComponent } from './components/reusable/filter-bar/filter-bar.component';
+import { LogTabComponent } from './components/reusable/adminpage/admin_tabs/log-tab/log-tab.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FilterBarComponent } from './components/reusable/filter-bar/filter-bar.
     CardholderComponent,
     AdminpageComponent,
     DataTabComponent,
-    FilterBarComponent
+    FilterBarComponent,
+    LogTabComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.tab-content{
+    padding : 10px 5px;
+}
+.inner-content{
+    padding : 5px;
+}
+
+.tab_label ::ng-deep .ant-tabs-tab {
+    font-size : 12px;
+    font-family : NotoSansBold;
+}
+.text-holder{
+    display: inline-block;
+    width: 95%;
+}

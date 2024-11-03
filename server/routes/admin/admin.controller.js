@@ -2,6 +2,25 @@ const Config = require('../../config/config');
 const conf = Config();
 const service = require('./admin.service');
 
+const fs = require('fs');
+const readline = require('readline');
+
+async function readLogFile(filePath ,LIMIT = 5000){
+    const SAVE_ARRAY = [];
+    const fileStream = fs.createReadStream(filePath);
+    const rl = readline.createInterface({
+      input: fileStream,
+      crlfDelay: Infinity // Recognize CR LF as a single newline.
+  });
+  for await (const line of rl) {
+      // Process each line
+      SAVE_ARRAY.push(line) // Replace this with your log processing logic
+      if(SAVE_ARRAY.length > LIMIT){
+        SAVE_ARRAY.shift();
+      }
+  }
+  return SAVE_ARRAY;
+}
 module.exports = {
     getTable : (async  (res) =>{
         try{
@@ -51,6 +70,20 @@ module.exports = {
             const TABLE_KEYWORK = res.KEYWORD;
             const TABLE = await service.getTableFound(TABLE_KEYWORK);
             return TABLE;
+  
+        }catch(error){
+            console.log("What is error",error)
+            throw error;
+        }
+    }),
+    getLog :  (async  (res) =>{
+        try{
+            const LOG_TYPE = res.LOG_TYPE;
+            const LIMIT = res.LIMIT
+            const FILE_PATH = `${conf.LOGGERPATH}/${conf.APPNAME}_${LOG_TYPE.toLowerCase()}.log`;
+            const data = await readLogFile(FILE_PATH,LIMIT);
+            const return_string = data.join('\n')
+            return return_string;
   
         }catch(error){
             console.log("What is error",error)
