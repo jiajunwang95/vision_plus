@@ -1,0 +1,41 @@
+<nz-content class = "contentLayout">
+    <!--Heading-->
+    <div nz-row class = "header_row">
+        <div nz-col nzSpan = "4" class = "table_header_div">
+            <p class = "table_header_label">Title</p>
+        </div>
+        <div nz-col nzSpan = "20" >
+            <div nz-row class = "header_row">
+                <ng-container *ngFor = "let col of COLUMN_HEADER">
+                    <div nz-col [nzSpan] = "generateSpan(COLUMN_HEADER.length)" class = "table_column_div">
+                        <p class = "table_header_label">{{col}}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <!--Body-->
+    <ng-container *ngFor ="let row of summarydata">
+        <div nz-row>
+            <div nz-col nzSpan = "4" class = "table_data_div">
+                <div nz-row class = "header_row">
+                    <div nz-col nzFlex="1" class="sub_icon">
+                        <span >
+                            <cds-icon [attr.shape]="'resize'"
+                            [attr.size]="mobileView ? imageSize['MOBILE'] : imageSize['DEFAULT']"
+                            class="defaultLogo"></cds-icon></span>
+                    </div>
+                    <div nz-col nzFlex="1" class="sub_icon" style="text-align: left!important;">
+                        <span ><cds-icon [attr.shape]="'download'"
+                            [attr.size]="mobileView ? imageSize['MOBILE'] : imageSize['DEFAULT']"
+                            class="downloadIcon"></cds-icon></span>
+                    </div>
+                    <div nz-col nzFlex="auto">
+                        <p class = "table_data_label">{{row.APPNAME}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+</nz-content>

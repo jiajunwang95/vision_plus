@@ -1,17 +1,29 @@
 .logo{
-    padding-top : 20px;
+    padding-right : 10px;
     text-align: center;
+    float : left;
 }
-
-.shortTitle{
-    font-family : NotoSansBold;
-    font-size : 18px;
-    color : #fff;
-    margin : 5px 0px;
-}
-
 .defaultLogo{
     color : #fbad1f !important
+}
+.header-menu {
+    line-height: 64px;
+}
+.headerLayout{
+    padding : 0px 15px!important;
+}
+.Main_Layout{
+    min-height: 100vh;
+}
+.inner-content {
+    background: #fff;
+    margin: 15px 10px;
+    padding : 15px;
+    min-height: 88vh;
+  }
+
+  .menuLogo{
+    color : #fff !important
 }
 
 .menuList{
@@ -24,6 +36,8 @@
     margin : 12px;
     color : #fff !important
 }
-.Admin_icon{
-    float: right;
+  @media screen and (max-width : 460px) {
+    .inner-content {
+        min-height: 80vh;
+      }
 }

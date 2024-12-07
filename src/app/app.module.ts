@@ -29,12 +29,10 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 //Additional Component
-import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { FormComponent } from './components/reusable/form/form.component'
 import { LoggingService } from './services/logging.service';
 import { NotificationCardComponent } from './components/reusable/notification-card/notification-card.component';
 import { TopnavComponent } from './components/reusable/topnav/topnav.component';
-import { CardholderComponent } from './components/landingpage/components/cardholder/cardholder.component';
 import { AdminpageComponent } from './components/reusable/adminpage/adminpage.component';
 import { DataTabComponent } from './components/reusable/adminpage/admin_tabs/data-tab/data-tab.component';
 import { AdminService } from './services/admin.service';
@@ -46,12 +44,10 @@ import { LogTabComponent } from './components/reusable/adminpage/admin_tabs/log-
     AppComponent,
     SidenavComponent,
     StackedcolumnComponent,
-    LandingpageComponent,
     FormComponent,
     BotnavComponent,
     NotificationCardComponent,
     TopnavComponent,
-    CardholderComponent,
     AdminpageComponent,
     DataTabComponent,
     FilterBarComponent,

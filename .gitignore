@@ -47,3 +47,4 @@ server/config/local
 package-lock.json
 *.zip
 server/cron/script/standalone
+src/app/fakedata

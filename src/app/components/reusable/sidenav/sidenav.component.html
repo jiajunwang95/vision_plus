@@ -1,30 +1,52 @@
-<div class ="logo">
-    <a [routerLink] = "''">
-        <cds-icon [attr.shape]="appIcon" size = "xl" class = "defaultLogo"></cds-icon>
-        <p class = "shorTitle"><span *ngIf = "!isCollapsed">{{shorTitle | titlecase}}</span></p>
-    </a>
-</div>
-<div class = "menuList">
-    <ul *ngIf ="navbarMenu" nz-menu nzMode="inline" [nzInlineCollapsed] = "isCollapsed" nzTheme = "dark">
-        <ng-container  [ngTemplateOutlet]="sideNavTemplate" [ngTemplateOutletContext] = "{navbarMenu : navbarMenu}"></ng-container>
-        <ng-template #sideNavTemplate let-navbarMenu = "navbarMenu">
-            <ng-container *ngFor = "let item of navbarMenu">           
-                <li *ngIf="!item.children" nz-menu-item [nzPaddingLeft] = "item.level *24" [nzDisabled] = "item.disabled" [nzSelected] = "item.selected"
-                [routerLink] = "item.path">
-                    <span><cds-icon [attr.shape]="item.icon" size="26" *ngIf="item.icon"></cds-icon></span>
-                    <span class = "itemLabel" *ngIf = "!isCollapsed"> {{item.title}}</span>
-                </li>
-                <li *ngIf ="item.children" nz-submenu [nzPaddingLeft] = "item.level *24" [nzOpen] = "item.open" [nzDisabled] = "item.disabled"
-                    [nzTitle] = "childTitle" [routerLink] = "item.path">
-                    <ng-template #childTitle>
-                        <span><cds-icon [attr.shape]="item.icon" size = "26"></cds-icon></span>
-                        <p class = "itemLabel">{{item.title}}</p>
-                    </ng-template>
-                    <ul>
-                        <ng-container  [ngTemplateOutlet]="sideNavTemplate" [ngTemplateOutletContext] = "{navbarMenu : item.children}"></ng-container>
-                    </ul>
-                </li>
-            </ng-container>
-        </ng-template>
-    </ul>
-</div> 
+<nz-layout class="Main_Layout">
+    <nz-sider nzCollapsible [nzCollapsed]="isCollapsed" [nzWidth]="siderWidth"
+        (nzCollapsedChange)="detectCollapsedAction($event)" *ngIf="!mobileView">
+        <div class="logo">
+            <a [routerLink]="''">
+                <cds-icon [attr.shape]="appIcon" size="xl" class="defaultLogo"></cds-icon>
+                <p class="shorTitle"><span *ngIf="!isCollapsed">{{shorTitle | titlecase}}</span></p>
+            </a>
+        </div>
+        <div class="menuList">
+            <ul *ngIf="navbarMenu" nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed" nzTheme="dark">
+                <ng-container [ngTemplateOutlet]="sideNavTemplate"
+                    [ngTemplateOutletContext]="{navbarMenu : navbarMenu}"></ng-container>
+                <ng-template #sideNavTemplate let-navbarMenu="navbarMenu">
+                    <ng-container *ngFor="let item of navbarMenu">
+                        <li *ngIf="!item.children" nz-menu-item [nzPaddingLeft]="item.level *24"
+                            [nzDisabled]="item.disabled" [nzSelected]="item.selected" [routerLink]="item.path">
+                            <span><cds-icon [attr.shape]="item.icon" size="26" *ngIf="item.icon" class="menuLogo"></cds-icon></span>
+                            <span class="itemLabel" *ngIf="!isCollapsed"> {{item.title}}</span>
+                        </li>
+                        <li *ngIf="item.children" nz-submenu [nzPaddingLeft]="item.level *24" [nzOpen]="item.open"
+                            [nzDisabled]="item.disabled" [nzTitle]="childTitle" [routerLink]="item.path">
+                            <ng-template #childTitle>
+                                <span><cds-icon [attr.shape]="item.icon" size="26" class="menuLogo"></cds-icon></span>
+                                <p class="itemLabel" *ngIf="!isCollapsed" >{{item.title}}</p>
+                            </ng-template>
+                            <ul>
+                                <ng-container [ngTemplateOutlet]="sideNavTemplate"
+                                    [ngTemplateOutletContext]="{navbarMenu : item.children}"></ng-container>
+                            </ul>
+                        </li>
+                    </ng-container>
+                </ng-template>
+            </ul>
+        </div>
+    </nz-sider>
+    <nz-layout>
+        <nz-header class="headerLayout">
+            <p class="pageTitle">{{title | titlecase }}</p>
+            <p class="pageSubtitle">{{description | titlecase}}</p>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <!-- <nz-footer>
+
+        </nz-footer> -->
+    </nz-layout>
+
+</nz-layout>

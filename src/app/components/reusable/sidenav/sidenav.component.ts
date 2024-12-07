@@ -1,4 +1,4 @@
-import { Component, Input,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {general,navbarmenu} from '../../component_config/sidenav'
 
 @Component({
@@ -7,10 +7,22 @@ import {general,navbarmenu} from '../../component_config/sidenav'
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
-  @Input() isCollapsed = false;
   shorTitle : string = general.shortTitle;
   appIcon : string = general.appIcon;
   navbarMenu : Array<any > = navbarmenu;
+  isCollapsed : boolean = true;
+  siderWidth : string = general.siderWidth;
+  title : string = general.title;
+  description : string = general.subtitle;
+  mobileView : boolean = false;
+
+  detectCollapsedAction = (event : boolean) =>{
+    if(event){
+      this.isCollapsed = true;
+    }else{
+      this.isCollapsed = false;
+    }
+  }
 
 
 }

@@ -1,27 +1,8 @@
-<nz-layout class = "Main_Layout">
-  <nz-layout>
-      <app-topnav *ngIf="!mobileView" [isAdmin]="true"></app-topnav>
-      <nz-header class="headerLayout" *ngIf="mobileView">
-        <div nz-row >
-          <div nz-col nzSpan="3" >
-            <a [routerLink] = "''">
-              <cds-icon [attr.shape]="appIcon" size = "36" class = "defaultLogo"></cds-icon>
-          </a>
-          </div>
-          <div nz-col nzSpan="21" class="headerDiv">
-            <p class="pageTitle">{{title | titlecase }}</p>
-            <p class="pageSubtitle">{{description | titlecase}}</p>
-          </div>
-        </div>
-      </nz-header>
-    <nz-content class="headerLayoutContent">
-      <nz-layout class="inner-content">
-        <router-outlet></router-outlet>
-      </nz-layout>
-    </nz-content>
-  </nz-layout>
-  <nz-footer *ngIf="mobileView" class = "headerLayoutFooter">
-    <app-botnav ></app-botnav>
-  </nz-footer>
-</nz-layout>
+<ng-container *ngIf="!mobileView">
+  <app-topnav></app-topnav>
+</ng-container>
+<ng-container *ngIf="mobileView">
+  <app-botnav></app-botnav>
+</ng-container>
+
 <app-notification-card *ngIf ="displayError" [status]="'error'" [mobileView]="mobileView"  [message] ="ErrorMsg"></app-notification-card>

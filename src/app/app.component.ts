@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   title : string = general.title;
   description : string = general.subtitle;
   appIcon : string = general.appIcon;
+  vertical : boolean = false;
   constructor(private LoggingService : LoggingService){}
   //Logging related variables
   USER ; SESSION_ID;

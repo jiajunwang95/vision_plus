@@ -1,3 +1,69 @@
+.Main_Layout{
+    min-height: 100vh;
+}
+.inner-content {
+    background: #fff;
+    margin: 15px 10px;
+    padding : 15px;
+    min-height: 80vh;
+  }
+  .logo{
+    padding-top : 20px;
+    text-align: center;
+}
+
+.shortTitle{
+    font-family : NotoSansBold;
+    font-size : 18px;
+    color : #fff;
+    margin : 5px 0px;
+}
+
+.defaultLogo{
+    color : #fbad1f !important
+}
+.menuIcon{
+    color : #fbad1f !important
+}
+
+.menuList{
+    font-family : NotoSanRegular;
+    margin-top : 20px;
+}
+
+.itemLabel {
+    font-size : 14px !important;
+    margin : 12px;
+    color : #fff !important
+}
+.headerLayout {
+    background-color: #001529;    
+    padding : 0px 20px;
+    min-height: 7vh;
+}
+.headerLayoutContent{
+    margin-top : 15px;
+}
+.headerDiv{
+    padding : 10px;
+    height : 80px;
+}
+
+.pageTitle{
+    margin : 3px 0px 0px 0px;
+    font-family : NotoSansBold;
+    font-size : 18px;
+    color : #fff !important;}
+
+.pageSubtitle{
+    font-size : 12px;
+    color : #fff !important;
+    font-family : NotoSansRegular;
+    margin : 0px;
+}
+.ant-layout-footer{
+    padding :0px;
+}
 .menuList{
     font-family : NotoSanRegular;
     margin-top : 5px;
@@ -21,4 +87,9 @@
 .itemIcon{
     font-size : 0px !important;
     padding-top : 0px;
+}
+@media screen and (max-height : 670px) {
+    .inner-content {
+        min-height: 75vh;
+      }
 }
